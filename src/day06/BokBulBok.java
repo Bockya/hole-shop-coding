@@ -2,6 +2,7 @@ package day06;
 
 public class BokBulBok {
     private char[] items;
+    private int nextIndex = 0;
 
     void ready() {
         items = new char[10];
@@ -16,6 +17,7 @@ public class BokBulBok {
         }
     }
 
-    void selectOne() {
+    char selectOne() {
+        return items[nextIndex++];
     }
 }
