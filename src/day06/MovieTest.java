@@ -1,17 +1,24 @@
 package day06;
 
+import java.util.Arrays;
+
 class Movie {
     //iv -  멤버변수 - field
     String genre;
-    //횟수
+    //씬 횟수
     int action;
     int kiss;
 
+    //생성자 함수 -> new와 함께 인스턴스를 만들 때
     Movie(String genre, int action, int kiss) {
         this.genre = genre;
         //횟수
         this.action = action;
         this.kiss = kiss;
+    }
+
+    double calcDistance(int action, int kiss) {
+        return Math.sqrt(Math.pow(this.action - action, 2) + Math.pow(this.kiss - kiss, 2));
     }
 
     @Override
@@ -26,10 +33,21 @@ class Movie {
 
 class MovieTest {
     public static void main(String[] args) {
-        Movie m1 = new Movie("멜로", 3, 5);
-        System.out.println(m1);
+        Movie[] movies = new Movie[6];
+        movies[0] = new Movie("A", 6, 4);
+        movies[1] = new Movie("A", 7, 2);
+        movies[2] = new Movie("A", 5, 2);
+        movies[3] = new Movie("M", 4, 5);
+        movies[4] = new Movie("M", 3, 4);
+        movies[5] = new Movie("M", 3, 2);
 
-        Movie m2 = new Movie("액션", 3, 5);
-        System.out.println(m2);
+        System.out.println(Arrays.toString(movies));
+
+        //target
+        Movie target = new Movie("", 4, 4);
+        for (Movie movie : movies) {
+            double distance = movie.calcDistance(target.action, target.kiss);
+            System.out.println(distance);
+        }
     }
 }
