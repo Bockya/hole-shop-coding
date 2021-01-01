@@ -1,6 +1,6 @@
-package day07.donutarea;
+package day07.donut;
 
-class DonutAreaService {
+class AreaService {
     double calcDonutArea(double r1, double r2) {
         double area1 = calcArea(r1);
         double area2 = calcArea(r2);

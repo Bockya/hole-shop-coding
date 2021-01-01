@@ -1,15 +1,15 @@
-package day07.donutarea;
+package day07.donut;
 
 import lombok.ToString;
 
 import java.util.Scanner;
 
 @ToString
-class DonutAreaUI {
-    DonutAreaService service;
+class AreaUI {
+    AreaService service;
     Scanner scanner;
 
-    public DonutAreaUI(DonutAreaService service) {
+    public AreaUI(AreaService service) {
         this.service = service;
         this.scanner = new Scanner(System.in);
     }
