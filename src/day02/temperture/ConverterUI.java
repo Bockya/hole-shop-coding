@@ -1,11 +1,8 @@
 package day02.temperture;
 
-import lombok.ToString;
-
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
-@ToString
+
 class ConverterUI {
     ConverterService service;
     Scanner scanner;
