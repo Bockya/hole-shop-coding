@@ -1,14 +1,17 @@
 package day07;
 
+import lombok.ToString;
+
 import java.util.Scanner;
 
+@ToString
 class Quiz {
-    String text;
+    int num;
     Quiz yes;
     Quiz no;
 
-    Quiz(String text) {
-        this.text = text;
+    Quiz(int num) {
+        this.num = num;
     }
 
     Quiz getNext(String answer) {
@@ -18,37 +21,27 @@ class Quiz {
         else result = no;
         return result;
     }
-
-    @Override
-    public String toString() {
-        return "Quiz{" +
-                "text='" + text + '\'' +
-                '}';
-    }
 }
 
 class QuizMain {
     public static void main(String[] args) {
-        Quiz q1 = new Quiz("1");
-        Quiz q2 = new Quiz("2");
-        Quiz q3 = new Quiz("3");
-        Quiz q4 = new Quiz("4");
-        Quiz q5 = new Quiz("5");
-        Quiz q6 = new Quiz("6");
-        Quiz q7 = new Quiz("7");
+        Quiz[] quizArr = new Quiz[7];
+        for (int i = 0; i < quizArr.length; i++) {
+            quizArr[i] = new Quiz(i);
+        }
 
-        q1.yes = q2;
-        q1.no = q3;
-        q2.yes = q4;
-        q2.no = q5;
-        q3.yes = q6;
-        q3.no = q7;
+        quizArr[0].yes = quizArr[1];
+        quizArr[0].no = quizArr[2];
+        quizArr[1].yes = quizArr[3];
+        quizArr[1].no = quizArr[4];
+        quizArr[2].yes = quizArr[5];
+        quizArr[2].no = quizArr[6];
 
         Scanner sc = new Scanner(System.in);
-        Quiz current = q1;
+        Quiz current = quizArr[0];
 
         while (current != null) {
-            System.out.println(current.text);
+            System.out.println(current.num);
             String answer = sc.nextLine();
             current = current.getNext(answer);
         }
