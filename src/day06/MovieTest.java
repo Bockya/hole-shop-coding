@@ -45,9 +45,12 @@ class MovieTest {
 
         //target
         Movie target = new Movie("", 4, 4);
-        for (Movie movie : movies) {
-            double distance = movie.calcDistance(target.action, target.kiss);
-            System.out.println(distance);
-        }
+        Arrays.sort(movies, (a, b) -> {
+            double disA = a.calcDistance(target.action, target.kiss);
+            double disB = a.calcDistance(target.action, target.kiss);
+
+            return disA > disB ? 1 : -1;
+        });
+        System.out.println(Arrays.toString(movies));
     }
 }
