@@ -9,6 +9,7 @@ import java.util.Scanner;
 @ToString
 class MessageUI { //고객이랑 입출력
     Scanner scanner;
+    MailSender sender = MailSender;
 
     void doJob() {
         System.out.println("누구에게");
@@ -25,5 +26,8 @@ class MessageUI { //고객이랑 입출력
         System.out.println("전송을 취소하시려면 n을 입력하세요");
         String oper = scanner.nextLine();
         if (oper.equals("n")) doJob(); //재귀
+
+        boolean result = sender.sendMail(dto);
+        System.out.println("전송 결과: " + result);
     }
 }
