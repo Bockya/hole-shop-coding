@@ -15,4 +15,16 @@ class Employee {
         this.name = name;
         this.ssn = ssn;
     }
+
+    public String getSabun() {
+        return sabun;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSsn() {
+        return ssn;
+    }
 }
