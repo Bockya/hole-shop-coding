@@ -15,4 +15,10 @@ public abstract class Employee {
                 ", pay=" + pay +
                 '}';
     }
+
+    public Employee(String empno, String name, int pay) {
+        this.empno = empno;
+        this.name = name;
+        this.pay = pay;
+    }
 }
